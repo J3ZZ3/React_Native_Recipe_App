@@ -7,8 +7,6 @@ const Profile = () => {
   const { user } = useUser();
   const [firstName, setFirstName] = useState(user?.firstName || '');
   const [lastName, setLastName] = useState(user?.lastName || '');
-  const [username, setUsername] = useState(user?.username || '');
-  const [phoneNumber, setPhoneNumber] = useState(user?.phoneNumbers?.[0]?.phoneNumber || '');
   const [emailAddress, setEmailAddress] = useState(user?.primaryEmailAddress?.emailAddress || '');
   const [isUpdating, setIsUpdating] = useState(false);
 
@@ -21,8 +19,6 @@ const Profile = () => {
       await user.update({
         first_name: firstName,
         last_name: lastName,
-        username: username,
-        phone_number: phoneNumber, // Clerk automatically manages phone number verifications
         email_address: emailAddress, // Clerk handles email verifications
       });
       alert('Profile updated successfully!');
@@ -56,19 +52,8 @@ const Profile = () => {
         value={lastName}
         onChangeText={setLastName}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Phone Number"
-        value={phoneNumber}
-        onChangeText={setPhoneNumber}
-        keyboardType="phone-pad"
-      />
+      
+      
       <TextInput
         style={styles.input}
         placeholder="Email Address"

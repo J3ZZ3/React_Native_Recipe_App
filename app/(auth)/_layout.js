@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
 import { useAuth } from '@clerk/clerk-expo';
+import { RecipeProvider } from '../../providers/RecipeProvider';
 import * as Linking from 'expo-linking';
 
 export const LogoutButton = () => {
@@ -22,6 +23,8 @@ const TabsPage = () => {
   const { isSignedIn } = useAuth();
 
   return (
+    <RecipeProvider>
+
     <Tabs
       screenOptions={{
         tabBarActiveBackgroundColor: "grey",
@@ -59,6 +62,8 @@ const TabsPage = () => {
       <Tabs.Screen
         name="settings"
         options={{
+        
+          
           headerTitle: 'Settings',
           tabBarIcon: ({ color, size }) => <Ionicons name="settings-outline" size={size} color={color} />
           ,
@@ -68,6 +73,8 @@ const TabsPage = () => {
         redirect={!isSignedIn}
       />
     </Tabs>
+    </RecipeProvider>
+
   );
 };
 

@@ -8,8 +8,8 @@ import {
     TextInput,
     ActivityIndicator 
 } from 'react-native';
-import FAB from '@/components/FAB';
-import RecipeCard from '@/components/UserCard';
+import FAB from '../../components/FAB';
+import RecipeCard from '../../components/UserCard';
 import { RecipeContext } from '@/providers/RecipeProvider';
 
 const RecipeList = () => {
@@ -102,9 +102,7 @@ export default RecipeList;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f5f5f5',
-        marginTop: 40
-
+        backgroundColor: '#f5f5f5'
     },
     searchInput: {
         margin: 10,
@@ -116,9 +114,8 @@ const styles = StyleSheet.create({
     },
     categoryList: {
         maxHeight: 60,
-        marginBottom: 10,
-        height  : 50    
-      },
+        marginBottom: 10
+    },
     categoryButton: {
         backgroundColor: '#e0e0e0',
         padding: 10,
